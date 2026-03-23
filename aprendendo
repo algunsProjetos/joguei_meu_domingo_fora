@@ -1,0 +1,41 @@
+import pandas as pd #biblioca para trabalhar com csv
+import os 
+os.system("cls")
+extrato = pd.read_csv("extrato.csv", sep=";", skiprows=4,
+                  usecols=["Data Lançamento", "Histórico", "Descrição", "Valor"]) #nome do arquivo, separado por ';' pula ladainha do Inter
+print(extrato.to_string(index=False))
+
+#os.system("cls")
+print("\n -- Apenas o Essencial -- \n")
+
+"""tudo q tiver TIM|uber|ifood|cpfl|desktop|nu|sagr coracao 
+considere essencial ignorando letras diferentes"""
+essencial = extrato[extrato["Descrição"].str.contains("TIM|uber|ifood|cpfl|desktop|nu|sagr coracao|Growth", case=False)] 
+print(essencial.to_string(index=False)) #nao mestre indice
+
+
+
+"""luz = extrato[extrato["Descrição"].str.contains("cpfl", case=False)] 
+print(luz)"""
+
+
+
+
+
+"""#informa apenas oq o usuario quer saber
+entradaUser=input("Informe a transação que deseja acessar: ")
+try:
+      print(extrato.loc[entradaUser])
+except erro:
+      print(f"{entradaUser} não encontrada")"""
+"""
+extrato.loc[len(extrato)] = ["23/03/2026", "Pix enviado", "cpfl paulista", -50.00, 200.00]
+linha teste
+"""
+"""luz = extrato[extrato['Descrição'].str.contains('cpfl', case=False)]
+agua = extrato[extrato['Descrição'].str.contains('sabesp', case=False)]
+print(luz,agua)"""
+
+
+
+
